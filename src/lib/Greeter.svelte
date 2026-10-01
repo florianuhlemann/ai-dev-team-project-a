@@ -26,29 +26,39 @@
 	}
 
 	label {
-		font-size: 1rem;
-		color: #fff;
+		display: block;
+		margin-bottom: 0.5rem;
+		font-size: 0.9rem;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: #ffd9a0;
 	}
 
 	input {
+		width: 100%;
 		padding: 0.75rem 1rem;
+		font-size: 1.1rem;
+		color: #fff4e0;
+		background-color: rgba(255, 255, 255, 0.12);
+		border: 1px solid rgba(255, 220, 170, 0.4);
 		border-radius: 0.75rem;
-		border: 1px solid rgba(255, 255, 255, 0.3);
-		background: rgba(255, 255, 255, 0.1);
-		color: white;
-		font-size: 1rem;
 		outline: none;
-		transition: background 0.2s, border 0.2s;
+		transition: border-color 0.2s, box-shadow 0.2s;
+	}
+
+	input::placeholder {
+		color: rgba(255, 244, 224, 0.6);
 	}
 
 	input:focus {
-		background: rgba(255, 255, 255, 0.2);
-		border: 1px solid rgba(255, 255, 255, 0.5);
+		border-color: #f2b632;
+		box-shadow: 0 0 0 3px rgba(242, 182, 50, 0.35);
 	}
 
 	p {
+		margin: 1.5rem 0 0;
+		min-height: 1.6em;
 		font-size: 1.25rem;
-		font-weight: 600;
-		color: #ffd9a0;
+		color: #fff4e0;
 	}
 </style>
