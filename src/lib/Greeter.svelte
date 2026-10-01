@@ -6,12 +6,7 @@
 </script>
 
 <label for="first-name">First name</label>
-<input 
-	id="first-name" 
-	type="text" 
-	autocomplete="given-name" 
-	bind:value={name} 
-/>
+<input id="first-name" type="text" autocomplete="given-name" bind:value={name} />
 
 <p data-testid="greeting" aria-live="polite">
 	{#if greeting}
