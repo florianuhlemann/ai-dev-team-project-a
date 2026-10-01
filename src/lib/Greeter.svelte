@@ -8,12 +8,7 @@
 
 <div class="greeter-container">
 	<label for="name-input">{label}</label>
-	<input 
-		id="name-input" 
-		type="text" 
-		bind:value={name} 
-		placeholder="Enter your name" 
-	/>
+	<input id="name-input" type="text" bind:value={name} placeholder="Enter your name" />
 	<p data-testid="greeting">{message}</p>
 </div>
 
@@ -22,7 +17,9 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
-		align-items: center;
+		align-items: stretch;
+		width: 100%;
+		text-align: center;
 	}
 
 	label {
@@ -46,6 +43,7 @@
 		transition:
 			border-color 0.2s,
 			box-shadow 0.2s;
+		box-sizing: border-box;
 	}
 
 	input::placeholder {
