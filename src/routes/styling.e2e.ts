@@ -43,10 +43,14 @@ test('card is translucent with a blur effect', async ({ page }) => {
 	await page.goto('/');
 	const styles = await page.getByTestId('card').evaluate((el) => {
 		const s = getComputedStyle(el);
-		return { background: s.backgroundColor, backdrop: s.backdropFilter };
+		return {
+			background: s.backgroundColor,
+			backdrop: s.getPropertyValue('backdrop-filter'),
+			webkitBackdrop: s.getPropertyValue('-webkit-backdrop-filter')
+		};
 	});
 	expect(styles.background).toMatch(/^rgba\(/);
-	expect(styles.backdrop).toContain('blur');
+	expect(`${styles.backdrop} ${styles.webkitBackdrop}`).toContain('blur');
 });
 
 test('greeting still works inside the card', async ({ page }) => {
