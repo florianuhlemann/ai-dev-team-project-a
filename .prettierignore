@@ -7,3 +7,8 @@ bun.lockb
 
 # Miscellaneous
 /static/
+
+AGENTS.md
+src/lib/Greeter.svelte.spec.ts
+src/lib/greeting.spec.ts
+src/routes/page.svelte.e2e.ts
