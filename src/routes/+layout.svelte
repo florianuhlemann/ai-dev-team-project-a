@@ -1,67 +1,68 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
-
 	let { children } = $props();
 </script>
 
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
-
-<div class="blob blob-orange" aria-hidden="true"></div>
-<div class="blob blob-red" aria-hidden="true"></div>
-<div class="blob blob-gold" aria-hidden="true"></div>
-
-{@render children()}
+<div class="background-container">
+	<div class="blob blob-1"></div>
+	<div class="blob blob-2"></div>
+	<div class="blob blob-3"></div>
+	<div class="content">
+		{@render children()}
+	</div>
+</div>
 
 <style>
 	:global(html), :global(body) {
 		margin: 0;
+		padding: 0;
 		height: 100%;
 		overflow: hidden;
-		overscroll-behavior: none;
+		background-color: #1a1a1a;
 	}
 
-	:global(*), :global(*::before), :global(*::after) {
-		box-sizing: border-box;
-	}
-
-	:global(body) {
-		background: linear-gradient(135deg, #3b0d0c 0%, #7a2e12 45%, #c2561a 100%);
-		color: #fff4e0;
-		font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+	.background-container {
+		position: relative;
+		width: 100%;
+		height: 100vh;
+		overflow: hidden;
+		background: linear-gradient(135deg, #2c1e1a 0%, #4a2c2a 100%);
 	}
 
 	.blob {
-		position: fixed;
+		position: absolute;
 		border-radius: 50%;
 		filter: blur(60px);
 		opacity: 0.6;
-		pointer-events: none;
-		z-index: 0;
 	}
 
-	.blob-orange {
-		width: 40vmax;
-		height: 40vmax;
-		background: #ff8c1a;
-		top: -10vmax;
-		left: -8vmax;
+	.blob-1 {
+		width: 400px;
+		height: 400px;
+		background: #d97706;
+		top: -100px;
+		right: -100px;
 	}
 
-	.blob-red {
-		width: 35vmax;
-		height: 35vmax;
-		background: #a3201a;
-		tom: -12vmax;
-		right: -6vmax;
+	.blob-2 {
+		width: 500px;
+		height: 500px;
+		background: #991b1b;
+		bottom: -150px;
+		left: -100px;
 	}
 
-	.blob-gold {
-		width: 25vmax;
-		height: 25vmax;
-		background: #f2b632;
-		tom: 10vmax;
-		left: 20vmax;
+	.blob-3 {
+		width: 300px;
+		height: 300px;
+		background: #7c2d12;
+		top: 40%;
+		left: 20%;
+	}
+
+	.content {
+		position: relative;
+		z-index: 10;
+		width: 100%;
+		height: 100%;
 	}
 </style>
