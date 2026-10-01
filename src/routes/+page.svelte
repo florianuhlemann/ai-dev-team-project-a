@@ -3,8 +3,7 @@
 </script>
 
 <div class="glass-card" data-testid="card">
-	<h1
-	>Hello World</h1>
+	<h1>Hello World</h1>
 	<Greeter />
 </div>
 
@@ -17,16 +16,13 @@
 		backdrop-filter: blur(12px);
 		border: 1px solid rgba(255, 255, 255, 0.2);
 		box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-		max-width: 90%;
+		box-sizing: border-box;
 		width: 450px;
+		max-width: calc(100% - 2rem);
 		text-align: center;
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
 	}
 
 	h1 {
@@ -39,7 +35,6 @@
 	@media (max-width: 480px) {
 		.glass-card {
 			padding: 2rem 1rem;
-			width: 95%;
 		}
 		h1 {
 			font-size: 2rem;
