@@ -1,20 +1,20 @@
 <script lang="ts">
+	import { buildGreeting } from './greeting';
+
 	let { label = 'First name' }: { label?: string } = $props();
 	let name = $state('');
-	const greeting = $derived(name.trim() ? `Hello, ${name.trim()}!` : '');
+	const message = $derived(name.trim() ? buildGreeting(name) : 'Please enter your first name.');
 </script>
 
 <div class="greeter-container">
 	<label for="name-input">{label}</label>
 	<input 
-		id="name-input"
+		id="name-input" 
 		type="text" 
 		bind:value={name} 
-		placeholder="Enter your name"
+		placeholder="Enter your name" 
 	/>
-	{#if greeting}
-		<p data-testid="greeting">{greeting}</p>
-	{/if}
+	<p data-testid="greeting">{message}</p>
 </div>
 
 <style>
@@ -43,7 +43,9 @@
 		border: 1px solid rgba(255, 220, 170, 0.4);
 		border-radius: 0.75rem;
 		outline: none;
-		transition: border-color 0.2s, box-shadow 0.2s;
+		transition:
+			border-color 0.2s,
+			box-shadow 0.2s;
 	}
 
 	input::placeholder {
